@@ -1,3 +1,4 @@
+
 import pygame
 from constants import *
 from player import *
@@ -28,6 +29,10 @@ def main():
 
         for mem in updatable:
             mem.update(dt)
+        for mem in asteroids:
+            if player.is_colliding(mem):
+                print("GAME OVER!")
+                return
 
         screen.fill(BLACK)
         for mem in drawable:
